@@ -26,13 +26,13 @@ cacheSolve <- function(x, ...)  {
   ##the cache, if not found in the cache the inverse is calculated
   ## finally, this 'new' inverse is set in the cache.
   
-      m <- x$getinverse                     ##get inverse
+      m <- x$getinverse()                     ##get inverse
       if (!is.null(m)) {
         #test not NULL
         message("getting cached data")
       return(m)                             ##return matrix from cache and stop
       }
-      dat <- x$get                          ##retreive inverse from cache
+      dat <- x$get()                          ##retreive inverse from cache
       m   <- solve(dat, ...)                   #calculate inverse
       x$setinverse(m)                       ##set cache
   
